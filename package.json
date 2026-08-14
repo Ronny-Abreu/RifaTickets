@@ -1,0 +1,32 @@
+{
+  "name": "rifatickets",
+  "version": "1.0.0",
+  "description": "MVP proyecto final P3",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronny-Abreu/RifaTickets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ronny-Abreu/RifaTickets/issues"
+  },
+  "homepage": "https://github.com/Ronny-Abreu/RifaTickets#readme",
+  "dependencies": {
+    "firebase": "^12.17.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "selenium-webdriver": "^4.47.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.8.0"
+  }
+}
