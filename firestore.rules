@@ -2,13 +2,26 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /rifas/{rifaId} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-
+    // Reglas para el admin
     match /{document=**} {
       allow read, write: if request.auth != null;
+    }
+
+    // Reglas públicas
+    match /rifas/{rifaId} {
+      allow read: if true;
+
+      match /boletos/{boletoId} {
+        allow read: if true;
+
+        // El público solo puede RESERVAR boletos libres: se permite crear un
+        // documento nuevo, nunca sobrescribir ni borrar uno existente.
+        allow create: if request.resource.data.estado == 'pendiente'
+          && request.resource.data.compradorEmail is string
+          && request.resource.data.compradorEmail.size() > 0
+          && request.resource.data.voucherUrl is string
+          && request.resource.data.voucherUrl.size() > 0;
+      }
     }
   }
 }
