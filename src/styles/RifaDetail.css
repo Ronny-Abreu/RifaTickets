@@ -12,6 +12,15 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
+.tickets-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
 .tickets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));

@@ -109,6 +109,11 @@ export const RifaDetail: React.FC = () => {
 
   const totalBoletos = Array.from({ length: rifa.cantidadBoletos }, (_, i) => i + 1);
 
+  // HU-9: conteo en tiempo real de boletos comprados/pendientes/disponibles
+  const boletosComprados = Object.values(boletosReservados).filter(b => b.estado === 'comprado').length;
+  const boletosPendientes = Object.values(boletosReservados).filter(b => b.estado === 'pendiente').length;
+  const boletosDisponibles = rifa.cantidadBoletos - boletosComprados - boletosPendientes;
+
   return (
     <div className="detail-container">
       <header className="detail-header">
@@ -118,6 +123,11 @@ export const RifaDetail: React.FC = () => {
           <span style={{ color: '#10b981' }}>🟩 Disponible</span>
           <span style={{ color: '#f59e0b' }}>🟧 En Validación</span>
           <span style={{ color: '#ef4444' }}>🟥 Comprado</span>
+        </div>
+        <div className="tickets-stats">
+          <span className="stat-disponibles">Disponibles: <strong>{boletosDisponibles}</strong></span>
+          <span className="stat-pendientes">En validación: <strong>{boletosPendientes}</strong></span>
+          <span className="stat-comprados">Comprados: <strong>{boletosComprados}</strong></span>
         </div>
       </header>
 
