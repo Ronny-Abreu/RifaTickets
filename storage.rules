@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Vouchers de pago: el público puede subir su comprobante (HU-11) sin
+    // cuenta, pero solo imágenes JPEG/PNG de hasta 5MB. Nadie puede
+    // sobrescribir ni borrar un voucher ya subido por otra persona.
+    match /vouchers/{rifaId}/{nombreArchivo} {
+      allow read: if true;
+      allow create: if request.resource.size < 5 * 1024 * 1024
+                    && request.resource.contentType.matches('image/(jpeg|png)');
+    }
+
+    // Todo lo demás queda reservado al admin autenticado.
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

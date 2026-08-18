@@ -7,15 +7,20 @@ service cloud.firestore {
       allow read, write: if request.auth != null;
     }
 
-    // Reglas públicas
+    // solo puede crear su documento al registrarse (role forzado a 'client')
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.role == 'client';
+    }
+
+    // Reglas publicas
     match /rifas/{rifaId} {
       allow read: if true;
 
       match /boletos/{boletoId} {
         allow read: if true;
-
-        // El público solo puede RESERVAR boletos libres: se permite crear un
-        // documento nuevo, nunca sobrescribir ni borrar uno existente.
         allow create: if request.resource.data.estado == 'pendiente'
           && request.resource.data.compradorEmail is string
           && request.resource.data.compradorEmail.size() > 0
