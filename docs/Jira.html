@@ -1,0 +1,1915 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="45">
+            <img src="https://system-tickets.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="45">
+            <a href="https://system-tickets.atlassian.net/issues/?jql=project+%3D+HU+ORDER+BY+resolution+ASC%2C+cf%5B10019%5D+ASC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="45">
+            Displaying <strong>19</strong> issues at <strong>16/Aug/26 4:09 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10055" rel="10055" data-issuekey="HU-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 13/Aug/26 10:24 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-1" href="https://system-tickets.atlassian.net/browse/HU-1">HU-1</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Autenticación y Seguridad (Login/Registro)
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:00 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:31 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      dark_green
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00073:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 12:13 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10056" rel="10056" data-issuekey="HU-2" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 12:13 AM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-2" href="https://system-tickets.atlassian.net/browse/HU-2">HU-2</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Objetivo<br/>
+<br/>
+Crear la funcionalidad del panel de administración para gestionar rifas y vales. Esta funcionalidad debe permitir a los administradores crear, ver y gestionar inscripciones a rifas y los vales asociados desde una interfaz centralizada, proporcionando los controles necesarios para configurar los detalles de la rifa y los parámetros de los vales.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+Este problema se refiere a [https://system-tickets.atlassian.net/browse/HU-6|https://system-tickets.atlassian.net/browse/HU-6|smart-link] *y* [https://system-tickets.atlassian.net/browse/HU-7|https://system-tickets.atlassian.net/browse/HU-7|smart-link].  Forma parte del esfuerzo más amplio para habilitar la creación y gestión de rifas dentro de la consola de administración, y se relaciona con historias de usuario asociadas al manejo de vales y la distribución de premios.<br/>
+<br/>
+h3. Alcance<br/>
+<br/>
+* Validar los campos requeridos de la rifa. Asegurar que todas las entradas obligatorias se verifiquen en el lado del cliente y del servidor, con mensajes de error claros para datos faltantes o inválidos.<br/>
+* Guardar la rifa en Firestore. Persistir los datos validados de la rifa en Firestore con una estructura de documento apropiada, incluyendo marcas de tiempo y cualquier campo de indexación necesario para consultas eficientes.<br/>
+<br/>
+h3. Riesgos y dependencias<br/>
+<br/>
+* Firestore es una dependencia para guardar la rifa. Cualquier interrupción o problema de permisos con Firestore podría bloquear la creación y recuperación, por lo que se debe asegurar un manejo de errores adecuado y mensajes de reserva para los administradores.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Panel de Administración (Gestión de Rifas y Vouchers)
+    </p>
+</td>
+                                            <td class="lastViewed"> 12/Aug/26 11:40 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:32 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      green
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0007b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:26 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10057" rel="10057" data-issuekey="HU-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:59 PM </td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-3" href="https://system-tickets.atlassian.net/browse/HU-3">HU-3</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Objetivo<br/>
+<br/>
+Permitir a usuarios públicos ver rifas, reservar boletos, subir comprobantes de pago y ver actualizaciones del estado de la compra. También permitir a los administradores validar los comprobantes subidos.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+Esta épica incluye varias historias de usuario para la navegación pública de rifas y el flujo de compra de boletos. También incluye el paso de revisión por parte del administrador para los comprobantes de pago. Algunas acciones deben actualizarse en tiempo real usando listeners de Firestore.<br/>
+<br/>
+h3. Alcance<br/>
+<br/>
+Incluido en esta épica:<br/>
+<br/>
+* Ver rifas activas con tarjetas que muestran título, foto y tiempo restante.<br/>
+* Ver detalles de los boletos y disponibilidad en tiempo real.<br/>
+* Seleccionar un boleto disponible y cambiarlo a &quot;Pendiente de pago&quot;.<br/>
+* Subir una imagen de la transferencia de pago y mostrar &quot;En validación&quot; después de la subida.<br/>
+* Revisión por parte del administrador de los comprobantes subidos con acciones de aprobar y rechazar.<br/>
+* Actualizar la UI pública cuando un comprobante sea validado y el boleto pase a &quot;Comprado&quot;.<br/>
+<br/>
+h3. Criterios de éxito<br/>
+<br/>
+* Los usuarios públicos pueden ver una lista de rifas disponibles al entrar en la web.<br/>
+* Los conteos de boletos se actualizan automáticamente cuando otro usuario selecciona un boleto.<br/>
+* Los boletos disponibles pueden reservarse y quedan bloqueados visualmente para otros usuarios.<br/>
+* Los usuarios pueden subir una imagen como comprobante de pago.<br/>
+* Después de la subida, el sistema muestra &quot;En validación&quot;.<br/>
+* Los administradores pueden ver los comprobantes pendientes y aprobar o rechazarlos.<br/>
+* Cuando un comprobante es aprobado, el estado del boleto cambia a &quot;Comprado&quot; en la UI pública inmediatamente.<br/>
+<br/>
+h3. Riesgos y dependencias<br/>
+<br/>
+* Se requieren listeners de Firestore para actualizaciones de UI en tiempo real.<br/>
+* La reserva de boletos debe prevenir que otros usuarios seleccionen el mismo boleto.<br/>
+* La validación de comprobantes depende del dashboard de admin y sus acciones de aprobar/rechazar.<br/>
+* Los cambios de estado públicos dependen de la revisión de comprobantes por parte del administrador.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Experiencia del Usuario Público (Visualización y Compra)
+    </p>
+</td>
+                                            <td class="lastViewed"> 12/Aug/26 11:24 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:32 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017">      dark_purple
+  </td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0007j:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:59 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10058" rel="10058" data-issuekey="HU-4" class="issuerow">
+                                            <td class="statuscategorychangedate"> 13/Aug/26 10:24 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-4" href="https://system-tickets.atlassian.net/browse/HU-4">HU-4</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+El objetivo es validar el correo electrónico y una contraseña segura, y luego guardar al usuario en Firebase Auth. Esto implica asegurarse de que la dirección de correo proporcionada esté bien formada y sea accesible, confirmar que la contraseña cumple con nuestros requisitos de seguridad y, finalmente, crear el registro de usuario en Firebase Authentication para que la cuenta pueda usarse para el inicio de sesión y la gestión de identidad.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+El asunto trata sobre el registro de administradores en el sistema. Se relaciona con el flujo en el que los nuevos usuarios se registran o en el que creamos cuentas de forma programática, y debe integrarse con nuestra infraestructura de autenticación existente y las políticas de seguridad.<br/>
+<br/>
+h3. Criterios de aceptación (Validación de email y contraseña segura - Registro del usuario en Firebase Authentication):<br/>
+<br/>
+** Validar el correo electrónico.<br/>
+** Validar que la contraseña sea segura.<br/>
+** Guardar al usuario en Firebase Auth.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Autenticación y Seguridad (Login/Registro)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Registro de Usuario Administrador
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:01 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-4" href="https://system-tickets.atlassian.net/secure/attachment/10114/HU-4_Registro_Feliz.png">
+            HU-4_Registro_Feliz.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:36 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0007r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    14/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 2:02 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10059" rel="10059" data-issuekey="HU-5" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Aug/26 11:56 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-5" href="https://system-tickets.atlassian.net/browse/HU-5">HU-5</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+* Como administrador, cuando quiero acceder a mi panel, quiero iniciar sesión para poder usar el panel.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+* El problema trata sobre el proceso de inicio de sesión para un usuario administrador.<br/>
+* El objetivo es acceder al panel.<br/>
+<br/>
+h3. Criterios de aceptación - (Validación de credenciales de acceso  y Mostrar mensaje de error ante credenciales inválidas)<br/>
+<br/>
+* El administrador puede iniciar una sesión iniciando sesión.<br/>
+* El administrador puede acceder al panel después de iniciar sesión.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Autenticación y Seguridad (Login/Registro)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Inicio de sesión Usuario Administrador
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:01 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-5" href="https://system-tickets.atlassian.net/secure/attachment/10117/HU-2_Login_Exitoso_Automatizado.png">
+            HU-2_Login_Exitoso_Automatizado.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:38 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    2
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0007z:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    14/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 2:02 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10060" rel="10060" data-issuekey="HU-6" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Aug/26 11:56 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-6" href="https://system-tickets.atlassian.net/browse/HU-6">HU-6</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como administrador, cuando necesito crear una rifa, quiero especificar el título, el número de boletos y la fecha límite para poder configurar la rifa.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+El asunto trata sobre crear una rifa. La descripción está en español.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* La rifa puede ser creada por un administrador.<br/>
+* La rifa incluye un título.<br/>
+* La rifa incluye la cantidad de boletos.<br/>
+* La rifa incluye una fecha límite.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Panel de Administración (Gestión de Rifas y Vouchers)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Creación y Configuración de Rifa
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:03 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-6" href="https://system-tickets.atlassian.net/secure/attachment/10120/HU-6_CrearRifa_Feliz.png">
+            HU-6_CrearRifa_Feliz.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:39 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00087:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 2:03 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10061" rel="10061" data-issuekey="HU-7" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 12:10 AM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-7" href="https://system-tickets.atlassian.net/browse/HU-7">HU-7</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como administrador, al gestionar una rifa, quiero subir una foto representativa para que la rifa tenga una imagen.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+La solicitud es añadir una foto para la rifa. El problema está relacionado con el rol de administrador.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* Un administrador puede subir una imagen representativa para la rifa.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Panel de Administración (Gestión de Rifas y Vouchers)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Gestión de Imagen de Rifa
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:04 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-7" href="https://system-tickets.atlassian.net/secure/attachment/10124/HU-6_CrearRifa_Feliz.png">
+            HU-6_CrearRifa_Feliz.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:40 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0008f:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 2:04 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10062" rel="10062" data-issuekey="HU-8" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:26 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-8" href="https://system-tickets.atlassian.net/browse/HU-8">HU-8</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como usuario público, cuando ingreso al sitio web, quiero ver una lista de todos los rifas disponibles para poder ver las rifas activas y decidir rápidamente cuáles me interesan. Quiero que la página de entrada facilite escanear las opciones disponibles sin necesidad de iniciar sesión o navegar por varios menús. Esto debería ayudarme a descubrir las oportunidades actuales y comprender qué está en curso de un vistazo.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+La solicitud es que el sitio web público muestre la lista de rifas disponibles cuando los usuarios ingresen al sitio. Esto significa que la página de inicio o una página de destino prominente debería mostrar las rifas para que los visitantes vean de inmediato qué está activo. La lista debe ser accesible para visitantes no autenticados y debe reflejar el estado actual de cada rifa.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* *CA1*<br/>
+** Mostrar tarjetas para las rifas activas. Cada rifa activa debe estar representada como una tarjeta o mosaico en la lista, permitiendo a los usuarios analizar visualmente varias rifas rápidamente. Las tarjetas deben ordenarse de manera sensata, por ejemplo por fecha de inicio, fecha de cierre o popularidad, para que el descubrimiento sea intuitivo.<br/>
+* *CA2*<br/>
+** Mostrar información básica y tiempo restante. Cada tarjeta de rifa debe mostrar detalles clave como el título de la rifa, una breve descripción o resumen del premio, y el tiempo restante hasta que cierre la rifa. El tiempo restante debe actualizarse o ser claramente legible para que los usuarios comprendan la urgencia y puedan actuar en consecuencia.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Visualización de Rifas Activas
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:03 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-8" href="https://system-tickets.atlassian.net/secure/attachment/10125/HU-8_Vista_Publica_Automatizada.png">
+            HU-8_Vista_Publica_Automatizada.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:43 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0008n:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 2:05 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10063" rel="10063" data-issuekey="HU-9" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:26 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-9" href="https://system-tickets.atlassian.net/browse/HU-9">HU-9</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como usuario público, cuando veo los detalles del evento, quiero ver el número de boletos comprados y disponibles en tiempo real para poder conocer la disponibilidad actual de boletos. Necesito esta información para tomar decisiones rápidas sobre si comprar ahora o esperar, y para evitar intentar comprar boletos que ya están agotados.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+La solicitud es mostrar información de boletos en vivo en la vista de detalles del evento para usuarios públicos. Esta mejora tiene como objetivo mostrar recuentos precisos y actualizados directamente en la página del evento visible al público, de modo que los usuarios no necesiten actualizar manualmente ni navegar a otra pantalla para confirmar la disponibilidad.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* Los usuarios públicos pueden ver el número de boletos comprados en tiempo real. El recuento mostrado de boletos comprados debe reflejar transacciones recientes y actualizarse automáticamente sin requerir una recarga completa de la página.<br/>
+* Los usuarios públicos pueden ver el número de boletos disponibles en tiempo real. El recuento disponible debe ajustarse inmediatamente después de compras o cancelaciones para que los usuarios siempre vean la disponibilidad actual.<br/>
+<br/>
+<br/>
+<br/>
+* *CA1*<br/>
+** Actualizaciones automáticas mediante listeners de Firestore. Implementar listeners en tiempo real que envíen actualizaciones a la vista de detalles del evento cada vez que cambien los recuentos de boletos, asegurando una latencia mínima entre los cambios en el backend y la visualización en la interfaz de usuario.<br/>
+* *CA2*<br/>
+** Mostrar boletos comprados y disponibles en tiempo real. Ambas métricas deben ser visibles y estar claramente etiquetadas, para que los usuarios entiendan qué número representa los boletos vendidos y cuál representa el inventario restante.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Consulta de Disponibilidad de Boletos en Tiempo Real
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 2:03 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:44 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0008v:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:53 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10064" rel="10064" data-issuekey="HU-10" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:26 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-10" href="https://system-tickets.atlassian.net/browse/HU-10">HU-10</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como usuario público, cuando un boleto esté disponible, quiero hacer clic en él para reservarlo para poder asegurar el boleto.<br/>
+<br/>
+Como miembro del público en general que navega por los boletos, necesito una manera sencilla de reclamar un asiento disponible. Al hacer clic en el boleto, espero una acción de reserva inmediata que asegure que tengo derechos exclusivos para comprarlo por un tiempo limitado. Esta interacción debe ser simple y clara para que pueda pasar rápidamente de la selección al pago sin incertidumbre.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+El problema trata sobre permitir que los usuarios públicos seleccionen un boleto disponible.<br/>
+<br/>
+Esta solicitud se relaciona específicamente con el flujo de selección de boletos orientado al público. Se centra en permitir que cualquier usuario no autenticado o usuario general interactúe con los boletos mostrados como disponibles, sin requerir privilegios adicionales en el backend. El objetivo es hacer que el proceso de selección sea intuitivo y fiable para que los usuarios puedan iniciar el pago sin confusión. La implementación debe considerar restricciones web comunes como la persistencia de sesión, identificadores transitorios y acceso concurrente para evitar conflictos.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* Un usuario público puede hacer clic en un boleto disponible.<br/>
+* La interfaz debe aceptar una acción de clic de cualquier visitante público cuando un boleto esté marcado como disponible, y el clic debe activar el flujo de reserva inmediatamente. La interacción de clic debe ser sensible y no debe requerir inicio de sesión previo para iniciar la reserva.<br/>
+* Cuando se hace clic, el boleto queda reservado.<br/>
+* Al hacer clic, el sistema debe crear un registro de reserva para ese boleto vinculado a la sesión del usuario o a un identificador temporal para prevenir condiciones de carrera. Este registro de reserva debe incluir una marca de tiempo y una expiración para que el sistema pueda liberar automáticamente el boleto si el pago no se completa dentro del periodo permitido.<br/>
+* Cambiar el boleto a estado Pendiente de Pago.<br/>
+* El estado del boleto en el sistema debe actualizarse inmediatamente a Pendiente de Pago para reflejar que está reservado y a la espera de que se complete el pago. Este cambio de estado debe propagarse a todos los servicios relevantes para que los sistemas posteriores traten el boleto como no disponible para la compra por otros.<br/>
+* Bloquear visualmente el boleto para otros usuarios.<br/>
+* Otros usuarios que estén viendo el mismo evento deberían ver el boleto como bloqueado o no disponible, con un indicador visual claro y, si es apropiado, una cuenta regresiva que muestre cuánto tiempo se mantendrá la reserva. El tratamiento visual debe ser inequívoco y actualizarse en tiempo real o casi en tiempo real para que los usuarios comprendan con precisión el estado de disponibilidad.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Selección y Reserva de Boleto
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 4:08 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:45 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00093:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:53 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10065" rel="10065" data-issuekey="HU-11" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:26 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-11" href="https://system-tickets.atlassian.net/browse/HU-11">HU-11</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como usuario público, cuando necesito pagar mi entrada reservada, quiero subir una foto de mi transferencia bancaria para poder completar el pago. Esto me permite proporcionar una prueba visual de forma rápida y segura, y ayuda al equipo de venta de entradas a verificar mi pago sin necesidad de más correspondencia manual.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+Este asunto trata de permitir que un usuario público envíe una foto de su transferencia bancaria como comprobante de pago para una entrada reservada. La función debe admitir formatos de imagen comunes y flujos de carga sencillos para que los usuarios puedan adjuntar el recibo de la transferencia directamente desde su dispositivo, reduciendo la fricción en el proceso de confirmación de pago.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* El usuario público puede subir una foto de su transferencia. La interfaz de subida debe aceptar tipos de imagen estándar (JPEG, PNG) y proporcionar retroalimentación clara sobre cargas exitosas o fallidas.<br/>
+* La subida se utiliza para pagar una entrada reservada. Una vez enviada la foto, el sistema asocia la imagen con la reserva específica para que el personal pueda validar el pago con respecto a la entrada.<br/>
+* CA1: Carga de comprobante de transferencia. El usuario debe poder adjuntar la imagen del comprobante desde su dispositivo y recibir confirmación de que se ha enviado correctamente.<br/>
+* CA2: Mostrar estado En Validación después de la carga. Después de subir el comprobante, el estado de la reserva debe cambiar a &quot;En Validación&quot; para indicar que el equipo está revisando el pago.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Carga de Comprobante de Pago
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 4:09 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:46 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    3
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0009b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:59 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10066" rel="10066" data-issuekey="HU-12" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:59 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-12" href="https://system-tickets.atlassian.net/browse/HU-12">HU-12</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como administrador, cuando se hayan subido vales, quiero verlos para poder marcarlos como válidos o rechazarlos. Necesito una lista o vista clara que muestre cada vale subido y sus detalles, para poder tomar decisiones informadas sobre su validez. Esto ayudará a asegurar que solo se acepten vales legítimos y reducir el fraude o errores.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+Este asunto trata sobre la validación de vales subidos. Cubre el flujo de trabajo y la interfaz de usuario necesarios para que los administradores inspeccionen los datos de los vales subidos, realicen comprobaciones y registren una decisión. El objetivo es proporcionar un proceso de validación claro que se integre con el panel administrativo existente y preserve una pista de auditoría de las acciones realizadas.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* El administrador puede ver los vales subidos. La vista debe mostrar detalles relevantes del vale, como ID del vale, fecha de subida, quien lo subió, importe y cualquier archivo o imagen adjunta para facilitar la revisión.<br/>
+* El administrador puede marcar los vales como válidos. Debe haber una acción o botón que permita a los administradores aprobar un vale, y el sistema debe actualizar el estado del vale en consecuencia y registrar quién lo aprobó y cuándo.<br/>
+* El administrador puede rechazar los vales. Debe existir un flujo de rechazo claro que permita al administrador proporcionar una razón del rechazo, actualizar el estado del vale a rechazado y notificar al remitente si es necesario.<br/>
+* Mostrar los vales pendientes en el panel administrativo. Los vales pendientes deben indicarse claramente y ser fácilmente accesibles desde el panel de administración, con filtros u ordenación para priorizar elementos recientes o de alto valor.<br/>
+* Aprobar o rechazar vales. El sistema debe soportar tanto acciones de aprobar como de rechazar desde la misma interfaz, y cada acción debe desencadenar las actualizaciones de backend apropiadas y notificaciones opcionales a las partes interesadas.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Validación Administrativa de Comprobantes
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 4:09 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:47 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0009j:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:59 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10067" rel="10067" data-issuekey="HU-13" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:59 PM </td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-13" href="https://system-tickets.atlassian.net/browse/HU-13">HU-13</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Historia de usuario<br/>
+<br/>
+Como usuario público, cuando el administrador valida mi cupón, quiero que mi entrada cambie a &quot;Purchased&quot; para saber que mi compra ha sido confirmada. Este cambio debe proporcionar una retroalimentación clara en la interfaz pública, eliminando cualquier incertidumbre sobre si la transacción se completó con éxito. Espero ver el estado actualizado sin tener que actualizar manualmente o contactar con soporte.<br/>
+<br/>
+h3. Contexto<br/>
+<br/>
+Este problema describe un flujo de confirmación de compra para un usuario público. El estado del ticket debe actualizarse después de que el administrador valide el cupón. El flujo debe garantizar que la transición de estado sea fiable y se refleje en la vista pública, y debe tener en cuenta cualquier posible retraso o error durante la validación para que los usuarios reciban información precisa.<br/>
+<br/>
+h3. Criterios de aceptación<br/>
+<br/>
+* La entrada del usuario cambia a &quot;Purchased&quot; una vez que el administrador valida el cupón. Este cambio debe ocurrir como parte del proceso de validación y quedar registrado en la pista de auditoría del sistema.<br/>
+* Cambiar el ticket al estado Purchased. La actualización del estado debe ser inequívoca y usar la etiqueta exacta &quot;Purchased&quot; para que los usuarios y el personal de soporte puedan identificar de forma consistente las compras completadas.<br/>
+* Actualizar el estado de la compra inmediatamente en la interfaz pública. La actualización debe ser visible para el usuario público en tiempo real o con un retraso mínimo, y debe aparecer sin que el usuario tenga que realizar pasos extras como actualizar manualmente o cerrar sesión/iniciar sesión.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent">            Experiencia del Usuario Público (Visualización y Compra)
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Confirmación de Compra de Boleto
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 4:09 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:48 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    2
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0009r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 15/Aug/26 11:59 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10068" rel="10068" data-issuekey="HU-14" class="issuerow">
+                                            <td class="statuscategorychangedate"> 12/Aug/26 10:53 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-14" href="https://system-tickets.atlassian.net/browse/HU-14">HU-14</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            Sprint Planning<br/>
+<br/>
+Sesión de Sprint Planning para definir objetivos y elementos del backlog para el próximo sprint. Estimaremos las tareas, asignaremos responsables y aclararemos los criterios de aceptación para asegurar que el equipo esté alineado y preparado.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015">          <span title="12/Aug/26"><time datetime="2026-08-12">12/Aug/26</time></span>
+    </td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Sprint Planning
+    </p>
+</td>
+                                            <td class="lastViewed"> 14/Aug/26 11:58 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 10:52 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000ab:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    12/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 12/Aug/26 11:54 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10070" rel="10070" data-issuekey="HU-16" class="issuerow">
+                                            <td class="statuscategorychangedate"> 13/Aug/26 12:05 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-16" href="https://system-tickets.atlassian.net/browse/HU-16">HU-16</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            h3. Resumen<br/>
+<br/>
+Reunión diaria (Daily Stand-up) 1. Esta es la primera actualización de la reunión diaria para el equipo, cubriendo el progreso actual, los bloqueos y los planes para el día. Resume los puntos clave discutidos y las próximas acciones para mantener a todos alineados.<br/>
+<br/>
+<br/>
+<br/>
+h3. *Criterios de aceptación:*<br/>
+<br/>
+Inicialización del proyecto en React.js: {{npm init -y}}<br/>
+<br/>
+Paquetes al package.json:<br/>
+<br/>
+* {{react}} y {{react-dom}}<br/>
+* {{selenium-webdriver}}<br/>
+* {{mocha}} (como dependencia de desarrollo, siguiendo la estructura del JSON de ejemplo 04_Json_Dependencia_Mocha.png).
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015">          <span title="13/Aug/26"><time datetime="2026-08-13">13/Aug/26</time></span>
+    </td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Daily Stand-up 1
+    </p>
+</td>
+                                            <td class="lastViewed"> 14/Aug/26 11:58 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for HU-16" href="https://system-tickets.atlassian.net/secure/attachment/10107/04_Json_Dependencia_Mocha.png">
+            04_Json_Dependencia_Mocha.png
+        </a>
+    </td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 11:45 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000ad:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    13/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 13/Aug/26 10:51 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10071" rel="10071" data-issuekey="HU-17" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Aug/26 11:31 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-17" href="https://system-tickets.atlassian.net/browse/HU-17">HU-17</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            Daily Stand-up 2<br/>
+<br/>
+Esta es la segunda reunión diaria de stand-up para el equipo. Sirve como un registro corto y enfocado para alinearse en las prioridades, sacar a la luz bloqueos y coordinar el trabajo del día. Los participantes comparten brevemente el progreso desde la última reunión, las tareas próximas y cualquier impedimento que necesite atención.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015">          <span title="14/Aug/26"><time datetime="2026-08-14">14/Aug/26</time></span>
+    </td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Daily Stand-up 2
+    </p>
+</td>
+                                            <td class="lastViewed"> 14/Aug/26 11:30 PM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 11:53 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000af:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    14/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 14/Aug/26 11:31 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10072" rel="10072" data-issuekey="HU-18" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Aug/26 11:59 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-18" href="https://system-tickets.atlassian.net/browse/HU-18">HU-18</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            Daily Stand-up 3<br/>
+<br/>
+Esta es la tercera reunión diaria stand-up en la secuencia. Revisaremos el progreso, identificaremos bloqueos y nos alinearemos en las prioridades del día. Los participantes deben estar preparados para compartir actualizaciones breves sobre lo que completaron ayer, en qué planean trabajar hoy y cualquier impedimento que necesite atención.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015">          <span title="15/Aug/26"><time datetime="2026-08-15">15/Aug/26</time></span>
+    </td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Daily Stand-up 3
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 9:46 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 11:54 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000an:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    15/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 9:46 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10073" rel="10073" data-issuekey="HU-19" class="issuerow">
+                                            <td class="statuscategorychangedate"> 16/Aug/26 12:33 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-19" href="https://system-tickets.atlassian.net/browse/HU-19">HU-19</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            Daily Stand-up 4<br/>
+<br/>
+Esta es la cuarta reunión diaria de pie del equipo. La sesión cubrirá actualizaciones clave, bloqueos y prioridades del día, asegurando que todos se mantengan alineados e informados.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015">          <span title="16/Aug/26"><time datetime="2026-08-16">16/Aug/26</time></span>
+    </td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Daily Stand-up 4
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 9:46 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 11:54 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000av:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    16/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 16/Aug/26 9:47 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10074" rel="10074" data-issuekey="HU-20" class="issuerow">
+                                            <td class="statuscategorychangedate"> 12/Aug/26 11:54 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="HU-20" href="https://system-tickets.atlassian.net/browse/HU-20">HU-20</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    RifaTickets
+</td>
+                                            <td class="description">            Revisión de Sprint<br/>
+<br/>
+Revisión de Sprint: una reunión para mostrar el trabajo completado durante el sprint, recopilar comentarios y alinear los próximos pasos. El equipo presenta demostraciones de las funcionalidades terminadas, discute qué funcionó bien y qué no, e invita a las partes interesadas a hacer preguntas y aportar su opinión.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Sprint Review
+    </p>
+</td>
+                                            <td class="lastViewed"> 16/Aug/26 12:05 AM </td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 12/Aug/26 11:54 PM </td>
+                                            <td class="customfield_10020">Sprint 1 - RifaTickets</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i000b3:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    17/Aug/26
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            Ronny Ariel De Leon Abreu
+    </td>
+                                            <td class="updated"> 12/Aug/26 11:57 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="45"><font size="1">
+        Generated at Sun Aug 16 20:09:30 UTC 2026 by Ronny Ariel De Leon Abreu using Jira 1001.0.0-SNAPSHOT#100293-rev:efb9cb050af121e391559c902bcc791f3ff3d7fd.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
