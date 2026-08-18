@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 const getEnvVar = (key: string): string => {
   // @ts-ignore
@@ -8,7 +9,9 @@ const getEnvVar = (key: string): string => {
     // @ts-ignore
     return import.meta.env[`VITE_FIREBASE_${key}`];
   }
+  // @ts-ignore
   if (typeof process !== 'undefined' && process.env && process.env[`REACT_APP_FIREBASE_${key}`]) {
+    // @ts-ignore
     return process.env[`REACT_APP_FIREBASE_${key}`] as string;
   }
   return '';
@@ -27,5 +30,6 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+export const storage = getStorage(app);
 
 export default app;
